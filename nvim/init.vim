@@ -52,7 +52,7 @@ Plug 'wakatime/vim-wakatime'
 "End plugin list --------------------------------------------------------------
 call plug#end()
 
-language en_US
+"language en_US
 
 "Enable hangeul.vim
 let hangeul_enabled = 1
