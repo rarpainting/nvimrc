@@ -6,6 +6,13 @@ call plug#begin('~/.config/nvim/plugged')
 
 "Plugin list ------------------------------------------------------------------
 
+" custom
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install & npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs'
+
+" end custom
+
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-scripts/Mustang2'
 Plug 'vim-scripts/darktango.vim'
