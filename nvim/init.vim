@@ -11,6 +11,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install & npm install -g tern' }
 Plug 'carlitux/deoplete-ternjs'
 
+Plug 'neomake/neomake', { 'on': 'Neomake' }
+
+Plug 'ludovicchabant/vim-gutentags'
+
 " end custom
 
 Plug 'altercation/vim-colors-solarized'
@@ -73,6 +77,8 @@ let g:tern_request_timeout = 1
 let g:tern_request_timeout = 6000
 let g:tern#command = ["tern"]
 let g:tern#arguments = [" — persistent"]
+
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 " end custom
 
