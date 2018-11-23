@@ -47,7 +47,7 @@ Plug 'Shougo/vimshell.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'sgur/vim-editorconfig'
 
-Plug 'wakatime/vim-wakatime'
+"Plug 'wakatime/vim-wakatime'
 
 "End plugin list --------------------------------------------------------------
 call plug#end()
