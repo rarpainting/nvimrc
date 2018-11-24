@@ -22,6 +22,7 @@ Plug 'ludovicchabant/vim-gutentags'
 " Plug 'jiangmiao/auto-pairs'
 
 Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 
 " end custom
 
@@ -74,6 +75,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""
 " custom
 
+"" 语法相关
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_smart_case = 1
@@ -87,7 +89,9 @@ let g:tern_request_timeout = 6000
 let g:tern#command = ["tern"]
 let g:tern#arguments = [" — persistent"]
 
-" 显示相关
+let g:go_gocode_propose_source = 1
+
+"" 显示相关
 "set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
 "winpos 5 5          " 设定窗口位置  
 "set lines=40 columns=155    " 设定窗口大小  
@@ -115,6 +119,8 @@ set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
 set fileencoding=utf-8
+
+filetype plugin indent on
 
 " neosnippet
 let g:neosnippet#enable_completed_snippet = 1
