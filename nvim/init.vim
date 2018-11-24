@@ -7,13 +7,21 @@ call plug#begin('~/.config/nvim/plugged')
 "Plugin list ------------------------------------------------------------------
 
 " custom
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'wokalski/autocomplete-flow'
+" For func argument completion
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install & npm install -g tern' }
 Plug 'carlitux/deoplete-ternjs'
 
-Plug 'neomake/neomake', { 'on': 'Neomake' }
+" Plug 'neomake/neomake', { 'on': 'Neomake' }
 
 Plug 'ludovicchabant/vim-gutentags'
+
+" Plug 'jiangmiao/auto-pairs'
+
+Plug 'fatih/vim-go'
 
 " end custom
 
@@ -63,6 +71,7 @@ Plug 'sgur/vim-editorconfig'
 "End plugin list --------------------------------------------------------------
 call plug#end()
 
+"""""""""""""""""""""""""""""""""
 " custom
 
 let g:deoplete#enable_at_startup = 1
@@ -78,9 +87,42 @@ let g:tern_request_timeout = 6000
 let g:tern#command = ["tern"]
 let g:tern#arguments = [" — persistent"]
 
-let g:neomake_javascript_enabled_makers = ['eslint']
+" 显示相关
+"set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
+"winpos 5 5          " 设定窗口位置  
+"set lines=40 columns=155    " 设定窗口大小  
+set nu              " 显示行号  
+set go=             " 不要图形按钮  
+""color asmanian2     " 设置背景主题  
+set guifont=Courier_New:h10:cANSI   " 设置字体  
+syntax on           " 语法高亮  
+set showcmd         " 输入的命令显示出来，看的清楚些  
+set novisualbell    " 不要闪烁(不明白)  
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
+set laststatus=1    " 启动显示状态行(1),总是显示状态行(2)  
+" set foldenable      " 允许折叠  
+set foldmethod=manual   " 手动折叠  
+"set background=dark "背景使用黑色 
+set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
+" 显示中文帮助
+if version >= 603
+    set helplang=cn
+    set encoding=utf-8
+endif
+
+set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936
+set fileencoding=utf-8
+
+" neosnippet
+let g:neosnippet#enable_completed_snippet = 1
+
+" let g:neomake_javascript_enabled_makers = ['eslint']
 
 " end custom
+"""""""""""""""""""""""""""""""""
 
 "language en_US
 
