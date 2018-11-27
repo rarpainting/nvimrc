@@ -15,12 +15,16 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install & npm install -g tern' }
 Plug 'carlitux/deoplete-ternjs'
 
+" complete
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': {->coc#util#install()}}
+
 " Plug 'neomake/neomake', { 'on': 'Neomake' }
 
 Plug 'ludovicchabant/vim-gutentags'
 
 " Plug 'jiangmiao/auto-pairs'
 
+" go
 Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 
@@ -141,7 +145,7 @@ syntax on
 
 "Softtab -- use spaces instead tabs.
 set expandtab
-set tabstop=4 shiftwidth=4 sts=4
+set tabstop=4 shiftwidth=2 sts=4
 set autoindent nosmartindent
 
 "set tab characters apart
