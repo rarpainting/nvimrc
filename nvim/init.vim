@@ -14,6 +14,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install & npm install -g tern' }
 Plug 'carlitux/deoplete-ternjs'
+Plug 'isRuslan/vim-es6'
 
 " complete
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': {->coc#util#install()}}
@@ -94,6 +95,24 @@ let g:tern#command = ["tern"]
 let g:tern#arguments = [" — persistent"]
 
 let g:go_gocode_propose_source = 1
+
+" gutentags
+" 跟踪
+let g:gutentags_trace = 1
+" gutentags 搜索目录工程的标志
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+" 数据文件名称
+let g:gutentags_ctags_tagfile = '.tags'
+" 将生成的 tags 文件放在 ~/.cache/tags 中
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+if !isdirectory(s:vim_tags)
+  silent! call mkdir(s:vim_tags, 'p')
+endif
+" 配置 ctags
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 "" 显示相关
 "set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
