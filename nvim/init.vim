@@ -7,20 +7,22 @@ call plug#begin('~/.config/nvim/plugged')
 "Plugin list ------------------------------------------------------------------
 
 " custom
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'wokalski/autocomplete-flow'
+" ternJS & autocomplete
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'wokalski/autocomplete-flow'
 " For func argument completion
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install & npm install -g tern' }
-Plug 'carlitux/deoplete-ternjs'
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install & npm install -g tern' }
+" Plug 'carlitux/deoplete-ternjs'
 
 " complete
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': {->coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { ->coc#util#install() }}
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
 
 " Plug 'neomake/neomake', { 'on': 'Neomake' }
 
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Plug 'jiangmiao/auto-pairs'
 
@@ -54,7 +56,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'tomlion/vim-solidity'
 
-Plug 'lifthrasiir/hangeul.vim'
+" Plug 'lifthrasiir/hangeul.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
 Plug 'Shougo/unite.vim'
@@ -88,12 +90,14 @@ let g:deoplete#enable_refresh_always = 1
 let g:deoplete#max_abbr_width = 0
 let g:deoplete#max_menu_width = 0
 let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-let g:tern_request_timeout = 1
-let g:tern_request_timeout = 6000
-let g:tern#command = ["tern"]
-let g:tern#arguments = [" — persistent"]
+" let g:tern_request_timeout = 1
+" let g:tern_request_timeout = 6000
+" let g:tern#command = ["tern"]
+" let g:tern#arguments = [" — persistent"]
 
 let g:go_gocode_propose_source = 1
+
+" coc
 
 "" 显示相关
 "set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
