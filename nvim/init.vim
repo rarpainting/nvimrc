@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'ternjs/tern_for_vim', { 'do': 'npm install & npm install -g tern' }
 " Plug 'carlitux/deoplete-ternjs'
 
+
 " complete
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { ->coc#util#install() }}
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
@@ -97,25 +98,41 @@ let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
 
 let g:go_gocode_propose_source = 1
 
-" coc
+" gutentags
+" 跟踪
+let g:gutentags_trace = 1
+" gutentags 搜索目录工程的标志
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+" 数据文件名称
+let g:gutentags_ctags_tagfile = '.tags'
+" 将生成的 tags 文件放在 ~/.cache/tags 中
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+if !isdirectory(s:vim_tags)
+  silent! call mkdir(s:vim_tags, 'p')
+endif
+" 配置 ctags
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 "" 显示相关
-"set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
-"winpos 5 5          " 设定窗口位置  
-"set lines=40 columns=155    " 设定窗口大小  
-set nu              " 显示行号  
-set go=             " 不要图形按钮  
-""color asmanian2     " 设置背景主题  
-set guifont=Courier_New:h10:cANSI   " 设置字体  
-syntax on           " 语法高亮  
-set showcmd         " 输入的命令显示出来，看的清楚些  
-set novisualbell    " 不要闪烁(不明白)  
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
-set laststatus=1    " 启动显示状态行(1),总是显示状态行(2)  
-" set foldenable      " 允许折叠  
-set foldmethod=manual   " 手动折叠  
-"set background=dark "背景使用黑色 
-set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
+"set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示
+"winpos 5 5          " 设定窗口位置
+"set lines=40 columns=155    " 设定窗口大小
+set nu              " 显示行号
+set go=             " 不要图形按钮
+""color asmanian2     " 设置背景主题
+set guifont=Courier_New:h10:cANSI   " 设置字体
+syntax on           " 语法高亮
+set showcmd         " 输入的命令显示出来，看的清楚些
+set novisualbell    " 不要闪烁(不明白)
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容
+set laststatus=1    " 启动显示状态行(1),总是显示状态行(2)
+" set foldenable      " 允许折叠
+set foldmethod=manual   " 手动折叠
+"set background=dark "背景使用黑色
+set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 " 显示中文帮助
 if version >= 603
     set helplang=cn
